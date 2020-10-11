@@ -11,6 +11,18 @@ public class Lecture2 {
   @Test
   public void range() throws Exception {
 
+    /* The old way */
+    System.out.println("0 to 10 using the old way:");
+    for (int i = 0; i <= 10; i++) {
+      System.out.println(i);
+    }
+
+    /* Using streams */
+    System.out.println("0 to 10 using streams:");
+    IntStream.range(0, 10).forEach(System.out::println);
+
+    System.out.println("0 to 10 using streams inclusive:");
+    IntStream.rangeClosed(0, 10).forEach(System.out::println);
   }
 
   @Test
