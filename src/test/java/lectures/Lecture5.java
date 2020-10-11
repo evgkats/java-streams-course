@@ -15,10 +15,16 @@ import org.junit.Test;
 
 public class Lecture5 {
 
+  final Predicate<Car> carPredicate = car -> car.getPrice() < 10000;
+
   @Test
   public void understandingFilter() throws Exception {
     ImmutableList<Car> cars = MockData.getCars();
-
+    List<Car> carsFiltered = cars.stream()
+            .filter(carPredicate)
+            .collect(Collectors.toList());
+    carsFiltered.forEach(System.out::println);
+    System.out.println(carsFiltered.size());
   }
 
   @Test
