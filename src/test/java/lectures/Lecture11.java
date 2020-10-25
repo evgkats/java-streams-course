@@ -11,12 +11,20 @@ public class Lecture11 {
   @Test
   public void joiningStrings() throws Exception {
     List<String> names = ImmutableList.of("anna", "john", "marcos", "helena", "yasmin");
-
+    String concatenation = "";
+    for (String name: names) {
+      concatenation = concatenation.concat(name).concat(", ");
+    }
+    if (concatenation.lastIndexOf(",") != -1) {
+      concatenation = concatenation.substring(0, concatenation.lastIndexOf(","));
+    }
+    System.out.println(concatenation);
   }
 
   @Test
   public void joiningStringsWithStream() throws Exception {
     List<String> names = ImmutableList.of("anna", "john", "marcos", "helena", "yasmin");
-
+    String join = names.stream().collect(Collectors.joining(", "));
+    System.out.println(join);
   }
 }
