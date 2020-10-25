@@ -13,14 +13,21 @@ public class Lecture6 {
   @Test
   public void findAny() throws Exception {
     Integer[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    int any = Arrays.stream(numbers).filter(n -> n < 10).findAny().orElse(0);
+    int any = Arrays.stream(numbers)
+            .filter(numbersLessThan10)
+            .findAny()
+            .orElse(0);
     System.out.println(any);
   }
 
   @Test
   public void findFirst() throws Exception {
     Integer[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
+    int first = Arrays.asList(numbers).stream()
+            .filter(numbersLessThan10)
+            .findFirst()
+            .orElse(0);
+    System.out.println(first);
   }
 }
 
