@@ -46,7 +46,11 @@ public class Lecture7 {
   @Test
   public void average() throws Exception {
     List<Car> cars = MockData.getCars();
-
+    double averagePrice = cars.stream()
+            .mapToDouble(Car::getPrice)
+            .average()
+            .orElse(0);
+    System.out.println(averagePrice);
   }
 
   @Test
