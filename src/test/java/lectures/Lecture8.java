@@ -39,7 +39,11 @@ public class Lecture8 {
             "Alex"
         );
 
-
+    Map<String, Long> counting = names.stream()
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+    counting.forEach((name, count) -> {
+      System.out.println(name + " -> " + count);
+    });
   }
 
 }
